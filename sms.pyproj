@@ -37,11 +37,19 @@
     <Compile Include="sms\config.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sms\model\user.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sms\model\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sms\__init__.py" />
     <Compile Include="sms\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sms\" />
+    <Folder Include="instance\" />
+    <Folder Include="sms\model\" />
     <Folder Include="sms\static\" />
     <Folder Include="sms\static\fonts\" />
     <Folder Include="sms\static\scripts\" />
@@ -49,11 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="instance\flask.cfg" />
     <Content Include="sms\static\base.css" />
     <Content Include="sms\static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="sms\static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="sms\static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="sms\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="sms\static\giveawayconfirmation.css" />
     <Content Include="sms\static\giveawayform.css" />
     <Content Include="sms\static\scripts\bootstrap.js" />
     <Content Include="sms\static\scripts\bootstrap.min.js" />
@@ -71,7 +81,9 @@
     <Content Include="sms\static\scripts\respond.min.js" />
     <Content Include="sms\static\scripts\_references.js" />
     <Content Include="sms\templates\base.html" />
+    <Content Include="sms\templates\giveawayconfirmation.html" />
     <Content Include="sms\templates\giveawayform.html" />
+    <Content Include="sms\templates\login.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="py27env\">

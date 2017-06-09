@@ -1,11 +1,41 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="../static/giveawayform.css">
 </head>
+<header>
+    <h1>WTL</h1>
+</header>
 <body>
-
+    <div class="main-content">
+        <hr>
+        <form method="POST" enctype="multipart/form-data" action="/login" class="form-labels-on-top">
+            <div class="form-title-row">
+                <h1>Login</h1>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Email</span>
+                    {{ form.csrf_token }}
+                    {{ form.loemail }}
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Password</span>
+                    {{ form.lopass }}
+                </label>
+            </div>
+            <div class="form-row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
