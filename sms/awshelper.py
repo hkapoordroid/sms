@@ -33,3 +33,5 @@ def upload_image_to_s3(sourcefile):
         return S3_BASEURL+destination_filename
     except:
         raise
+
+

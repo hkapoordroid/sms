@@ -2,7 +2,6 @@ from uuid import uuid4
 import random
 import flask_login
 
-
 class User(flask_login.UserMixin):
     pass
 

@@ -10,9 +10,15 @@ app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile('flask.cfg')
 #app.config['SECRET_KEY'] = "FLASK_SECRET_KEY"
 
+#sess = Session()
+#sess.init_app(app)
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login_page"
+#login_manager.login_message = ""
+
+
 
 
 # Our mock database.

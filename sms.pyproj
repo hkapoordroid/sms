@@ -84,6 +84,7 @@
     <Content Include="sms\templates\giveawayconfirmation.html" />
     <Content Include="sms\templates\giveawayform.html" />
     <Content Include="sms\templates\login.html" />
+    <Content Include="sms\templates\profile.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="py27env\">

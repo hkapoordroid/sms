@@ -1,21 +1,48 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
+
+    <div align="right">
+        {% if current_user %}
+        <a href="{{ url_for('logout_page') }}">log out</a>
+        {% endif %}
+    </div>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
+
+    <!--
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    -->
+
+    
     <link rel="stylesheet" href="../static/base.css">
     <link rel="stylesheet" href="../static/giveawayform.css">
+    
+    
+
+    <!--{% block body %}{% endblock %}-->
+    
 </head>
 <header>
-    <h1>WTL</h1>
-</header>
-<body>
-    <div class="main-content">
-        <hr>
-        {% block content %}{% endblock %}
+    <div class="page-header">
+        <h1>WTL</h1>
     </div>
-</body>
+</header>
+
+    <body>
+        <div class="main-content">
+            <hr>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
 </html>

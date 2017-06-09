@@ -1,0 +1,75 @@
+﻿<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+    {% endif %}
+{% endwith %}
+
+
+<form method="POST" enctype="multipart/form-data" action="/profile" class="form-labels-on-top">
+    <div class="form-title-row">
+        <h1>Profile</h1>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Full Name</span>
+            {{ form.csrf_token }}
+            {{ form.fullname }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Instagram Username</span>
+            {{ form.igusername }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>DOB</span>
+            {{ form.dob }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Address 1</span>
+            {{ form.address1 }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Address 2</span>
+            {{ form.address2 }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>City</span>
+            {{ form.city }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Zip</span>
+            {{ form.zip }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Country</span>
+            {{ form.country }}
+        </label>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+{% endblock %}
