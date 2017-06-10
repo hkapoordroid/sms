@@ -15,27 +15,33 @@
 {% endwith %}
 
 
-<form method="POST" enctype="multipart/form-data" action="/profile" class="form-labels-on-top">
+<form method="POST" enctype="multipart/form-data" action="/sga" class="form-labels-on-top">
     <div class="form-title-row">
-        <h1>Profile</h1>
+        <h1>Setup a Giveaway</h1>
     </div>
     <div class="form-row">
         <label>
-            <span>Full Name</span>
+            <span>Upload Image</span>
             {{ form.csrf_token }}
-            {{ form.fullname }}
+            {{ form.gaphoto }}
         </label>
     </div>
     <div class="form-row">
         <label>
-            <span>Instagram Username</span>
-            {{ form.igusername }}
+            <span>Title of GA</span>
+            {{ form.gatitle }}
         </label>
     </div>
     <div class="form-row">
         <label>
-            <span>DOB</span>
-            {{ form.dob }}
+            <span>Type of GA</span>
+            {{ form.gatype }}
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <span>Describe GA</span>
+            {{ form.gadescription }}
         </label>
     </div>
     <div class="form-row">

@@ -37,6 +37,9 @@
     <Compile Include="sms\config.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sms\igauth.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sms\model\user.py">
       <SubType>Code</SubType>
     </Compile>
@@ -81,8 +84,10 @@
     <Content Include="sms\static\scripts\respond.min.js" />
     <Content Include="sms\static\scripts\_references.js" />
     <Content Include="sms\templates\base.html" />
+    <Content Include="sms\templates\dashboard.html" />
     <Content Include="sms\templates\giveawayconfirmation.html" />
     <Content Include="sms\templates\giveawayform.html" />
+    <Content Include="sms\templates\igauth.html" />
     <Content Include="sms\templates\login.html" />
     <Content Include="sms\templates\profile.html" />
   </ItemGroup>

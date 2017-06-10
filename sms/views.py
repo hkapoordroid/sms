@@ -1,11 +1,11 @@
 """
-Routes and views for the flask application.
+Routes and views for the sms web application.
 """
 from flask import Flask, render_template, flash, request, redirect, url_for, g
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from datetime import datetime
-from sms import app, users
+from sms import app
 from wtforms import StringField, BooleanField, SelectField, TextAreaField, PasswordField, DateField
 from wtforms.validators import InputRequired, Email
 from flask import flash
@@ -34,35 +34,25 @@ class UploadForm(FlaskForm):
 class Profile(FlaskForm):
     fullname = StringField("Full Name", [InputRequired("Please enter your full name")])
     igusername = StringField("Instagram Username", [InputRequired("Please enter IG Username")])
-    dob = DateField("Date of Birth", [InputRequired("Please enter DOB")])
-    address1 = StringField("Address 1", [InputRequired()])
-    address2 = StringField("Address 2")
-    city = StringField("City", [InputRequired()])
-    zip = StringField("City", [InputRequired()])
-    country = SelectField("Country", choices=[(f, f) for f in Countries])
+
+#@app.before_request
+#def before_request():
+#    g.user = current_user
 
 
-@app.before_request
-def before_request():
-    g.user = current_user
-
-
-@app.route('/', methods=['GET'])
+@app.route('/dashboard', methods=['GET'])
 @login_required
 def index_page():
     #return redirect(url_for('upload_page'))
     return render_template('dashboard.html')
-    
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def login_page():
-    if request.method == "GET":
-        logout_user()
+    #if request.method == "GET":
+    #    logout_user()
 
     form = LoginForm()
-    if request.method == 'POST' and not form.validate_on_submit():
-        flash('Invalid Login')
-    
+
     if form.validate_on_submit():
         useremail = form.loemail.data
         userpass = form.lopass.data
@@ -77,7 +67,8 @@ def login_page():
         #user = User(useremail, userpass)
         #save the logged in user
 
-        if userpass == users[useremail]['pw']:
+        #if userpass == users[useremail]['pw']:
+        if awshelper.verify_login(useremail, userpass):
             user = User()
             user.id = useremail
             login_user(user)
@@ -89,17 +80,16 @@ def login_page():
         else:
             print("Invalid username or password")
             flash("Invalid username or password")
+            
         #TODO: If authentication fails, return error message to user
 
     return render_template('login.html', form=form)
-
 
 @app.route('/logout', methods=['GET'])
 def logout_page():
     logout_user()
     #session['logged_in'] = False
     return redirect(url_for('login_page'))    
-
 
 @app.route('/sga', methods=['POST', 'GET'])
 @login_required
