@@ -44,7 +44,7 @@ class Profile(FlaskForm):
 @login_required
 def index_page():
     #return redirect(url_for('upload_page'))
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', page_title="Dashboard")
 
 @app.route('/', methods=['POST', 'GET'])
 def login_page():
@@ -106,11 +106,11 @@ def upload_page():
         #rwphoto = "<img src=\"" + s3PhotoUrl + "\" height=\"150\" width=\"75\">"
         
 
-        return render_template('giveawayconfirmation.html')
+        return render_template('giveawayconfirmation.html', page_title="Submit Giveaway")
         
 		#output = s3_upload(form.example)
         #flash('{src} uploaded to S3 as {dst}'.format(src=form.example.data.filename, dst=output))
-    return render_template('giveawayform.html', form=form)
+    return render_template('giveawayform.html', form=form, page_title="Submit Giveaway")
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
@@ -120,7 +120,7 @@ def profile_page():
         print(form.fullname.data)
         print(form.igusername.data)
 
-        return render_template(url_for('giveawayform.html'))
+        #return render_template(url_for('giveawayform.html'), page_title="Profile")
 
-    return render_template('profile.html', form=form)
+    return render_template('profile.html', form=form, page_title="Profile")
         
